@@ -1,14 +1,15 @@
 
-export const Languages = {
-    EN: 'en',
-    CZ: 'cz',
-    SK: 'sk'
+export const Language = {
+    EN: 'EN',
+    CZ: 'CZ',
 }
+export const Languages = [Language.EN, Language.CZ];
+
 const storageKey = 'lang'
-const defaultLang = Languages.EN;
+const defaultLang = Language.EN;
 
 export const changeLang = ((lang) => {
-    if (Languages[lang] !== undefined) {
+    if (Language[lang] !== undefined) {
         localStorage.setItem(storageKey, lang);
     }
 });
