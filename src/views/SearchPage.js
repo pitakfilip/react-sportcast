@@ -1,26 +1,26 @@
 import React from 'react';
-// import { useAuth0 } from '../react-auth0-spa';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@mui/styles';
+import TranslucentBox from '../components/TranslucentBox';
+import SearchForm from '../components/SearchForm';
 
 const useStyles = makeStyles((theme) => {
-    console.log(theme, 'this is theme!');
-    return {
-        root: {
-            display: 'block',
-            background: 'pink'
-        }
-    };
+	return {
+		root: {
+			background: 'pink', display: 'flex', justifyContent: 'center'
+		}, content: {
+			width: '80%', padding: '3em',
+		}
+	};
 });
 
-const SearchPage = () => {
-    const classes = useStyles();
-    return (
-        <div className={classes.root}>
-            
-            <p>SEARCH PAGE</p>
 
-        </div>
-    );
+const SearchPage = () => {
+	const classes = useStyles();
+	return (<div className={classes.root}>
+		<section className={classes.content}>
+			<TranslucentBox component={SearchForm}/>
+		</section>
+	</div>);
 };
 
 export default SearchPage;
