@@ -1,57 +1,90 @@
-// TODO REMOVE when done
-/* eslint-disable */
-
-import React, { useEffect } from 'react';
-import { useAuth0 } from '../react-auth0-spa';
-import { useNavigate } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import React, {useEffect} from 'react';
+import {useAuth0} from '../react-auth0-spa';
+import {useNavigate} from 'react-router-dom';
+import {makeStyles} from '@mui/styles';
+import background from '../assets/jumping-rope.jpg';
+import Introduction from '../components/introduction/Introduction';
+import logo from '../components/logo/sportcast-logo.png';
 
 const useStyles = makeStyles((theme) => {
-    console.log(theme, 'this is theme!');
-    return {
-        root: {
-            display: 'block',
-            background: 'pink'
-        },
-        button: {
-            background: theme.palette.info.light,
-            borderRadius: theme.shape.borderRadius,
-            outline: 0,
-            border: 0,
-            boxShadow: theme.shadows[1],
-            color: theme.palette.common.white,
-            fontWeight: theme.typography.fontWeightMedium,
-            textDecoration: 'none',
-            // ...theme.mixins.button,
-        },
-        link: {
-            color: theme.palette.common.white,
-            '&:hover': {
-                color: theme.palette.common.white,
-                textDecoration: 'none',
-            },
-        },
-    };
+	return {
+		root: {
+			height: '100vh',
+			width: '100vw',
+			minHeight: 'fit-content',
+			display: 'flex'
+		},
+		logoSection: {
+			width: '45%',
+			height: '100%',
+			flex: '3',
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center',
+			flexDirection: 'column',
+			backgroundImage: `url(${background})`,
+			backgroundSize: 'cover',
+			backgroundRepeat: 'no-repeat',
+			backgroundPosition: 'center center',
+
+		},
+		redirectSection: {
+			width: '55%',
+			height: '100%',
+			flex: '4',
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center'
+		},
+		identity: {
+			display: 'flex',
+			justifyContent: 'center',
+			flexDirection: 'column',
+			alignItems: 'center',
+			fontFamily: 'Arial, sans-serif',
+			fontSize: '1vw',
+			flex: '1'
+		},
+		above: {
+			flex: '1'
+		},
+		under: {
+			flex: '4'
+		}
+	};
 });
 
+
 const LandingPage = () => {
-    const classes = useStyles();
-    const navigate = useNavigate();
-    const { user } = useAuth0();
-    // TODO uncomment when done
-    // useEffect(() => {
-    //     if (user) {
-    //         navigate('/search');
-    //     }
-    // }, [user]);
+	const classes = useStyles();
+	const navigate = useNavigate();
+	const {user} = useAuth0();
 
-    return (
-        <div className={classes.root}>
-            
-            <p>JOZKO MRKVICKA</p>
+	useEffect(() => {
+		if (user) {
+			navigate('/search');
+		}
+	}, [user]);
 
-        </div>
-    );
+	return (
+		<div className={classes.root}>
+			<section className={classes.logoSection} style={{backgroundColor: 'lightgray'}}>
+				<div className={classes.above}/>
+				<div className={classes.identity}>
+					<img src={logo}
+							 width={'40%'}
+							 height={'auto'}
+							 alt={'SportCast Logo'}/>
+					<p>where your future meets ideal weather</p>
+				</div>
+				<div className={classes.under}/>
+			</section>
+
+			<section className={classes.redirectSection}>
+				<Introduction/>
+			</section>
+		</div>
+	);
 };
 
 export default LandingPage;

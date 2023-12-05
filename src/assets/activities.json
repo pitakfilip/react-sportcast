@@ -1,0 +1,722 @@
+{
+    "football": {
+        "label": {
+            "CZ": "Fotbal",
+            "EN": "Football"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 30
+        },
+        "wind": {
+            "from": 0,
+            "to": 10
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "hiking": {
+        "label": {
+            "CZ": "Turistika",
+            "EN": "Hiking"
+        },
+        "temperature": {
+            "from": 10,
+            "to": 25
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 15
+        }
+    },
+    "swimming": {
+        "label": {
+            "CZ": "Plavání",
+            "EN": "Swimming"
+        },
+        "temperature": {
+            "from": 20,
+            "to": 35
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "hockey": {
+        "label": {
+            "CZ": "Hokej",
+            "EN": "Hockey"
+        },
+        "temperature": {
+            "from": -2,
+            "to": 10
+        },
+        "wind": {
+            "from": 0,
+            "to": 8
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "cycling": {
+        "label": {
+            "CZ": "Cyklistika",
+            "EN": "Cycling"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 30
+        },
+        "wind": {
+            "from": 0,
+            "to": 15
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "tennis": {
+        "label": {
+            "CZ": "Tenis",
+            "EN": "Tennis"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 35
+        },
+        "wind": {
+            "from": 0,
+            "to": 12
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "running": {
+        "label": {
+            "CZ": "Běh",
+            "EN": "Running"
+        },
+        "temperature": {
+            "from": 10,
+            "to": 25
+        },
+        "wind": {
+            "from": 0,
+            "to": 8
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "golf": {
+        "label": {
+            "CZ": "Golf",
+            "EN": "Golf"
+        },
+        "temperature": {
+            "from": 20,
+            "to": 35
+        },
+        "wind": {
+            "from": 0,
+            "to": 10
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "climbing": {
+        "label": {
+            "CZ": "Horolezectví",
+            "EN": "Climbing"
+        },
+        "temperature": {
+            "from": 5,
+            "to": 20
+        },
+        "wind": {
+            "from": 0,
+            "to": 10
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "kayaking": {
+        "label": {
+            "CZ": "Kajak",
+            "EN": "Kayaking"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 25
+        },
+        "wind": {
+            "from": 0,
+            "to": 8
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 20
+        }
+    },
+    "surfing": {
+        "label": {
+            "CZ": "Surfování",
+            "EN": "Surfing"
+        },
+        "temperature": {
+            "from": 18,
+            "to": 30
+        },
+        "wind": {
+            "from": 5,
+            "to": 20
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "skiing": {
+        "label": {
+            "CZ": "Lyžování",
+            "EN": "Skiing"
+        },
+        "temperature": {
+            "from": -10,
+            "to": 5
+        },
+        "wind": {
+            "from": 0,
+            "to": 15
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "baseball": {
+        "label": {
+            "CZ": "Baseball",
+            "EN": "Baseball"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 30
+        },
+        "wind": {
+            "from": 0,
+            "to": 10
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "yoga": {
+        "label": {
+            "CZ": "Jóga",
+            "EN": "Yoga"
+        },
+        "temperature": {
+            "from": 20,
+            "to": 35
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "volleyball": {
+        "label": {
+            "CZ": "Volejbal",
+            "EN": "Volleyball"
+        },
+        "temperature": {
+            "from": 20,
+            "to": 35
+        },
+        "wind": {
+            "from": 0,
+            "to": 8
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "kiteboarding": {
+        "label": {
+            "CZ": "Kiteboarding",
+            "EN": "Kiteboarding"
+        },
+        "temperature": {
+            "from": 18,
+            "to": 30
+        },
+        "wind": {
+            "from": 10,
+            "to": 25
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "archery": {
+        "label": {
+            "CZ": "Lukostřelba",
+            "EN": "Archery"
+        },
+        "temperature": {
+            "from": 10,
+            "to": 25
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "skateboarding": {
+        "label": {
+            "CZ": "Skateboarding",
+            "EN": "Skateboarding"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 30
+        },
+        "wind": {
+            "from": 0,
+            "to": 10
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "fishing": {
+        "label": {
+            "CZ": "Rybářství",
+            "EN": "Fishing"
+        },
+        "temperature": {
+            "from": 10,
+            "to": 25
+        },
+        "wind": {
+            "from": 0,
+            "to": 8
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "gymnastics": {
+        "label": {
+            "CZ": "Gymnastika",
+            "EN": "Gymnastics"
+        },
+        "temperature": {
+            "from": 10,
+            "to": 30
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "canoeing": {
+        "label": {
+            "CZ": "Kanoistika",
+            "EN": "Canoeing"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 25
+        },
+        "wind": {
+            "from": 0,
+            "to": 8
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 15
+        }
+    },
+    "sailing": {
+        "label": {
+            "CZ": "Plachtění",
+            "EN": "Sailing"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 30
+        },
+        "wind": {
+            "from": 5,
+            "to": 20
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "karate": {
+        "label": {
+            "CZ": "Karate",
+            "EN": "Karate"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 30
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "horsebackRiding": {
+        "label": {
+            "CZ": "Jízda na koni",
+            "EN": "Horseback Riding"
+        },
+        "temperature": {
+            "from": 10,
+            "to": 25
+        },
+        "wind": {
+            "from": 0,
+            "to": 8
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "basketball": {
+        "label": {
+            "CZ": "Basketbal",
+            "EN": "Basketball"
+        },
+        "temperature": {
+            "from": 20,
+            "to": 35
+        },
+        "wind": {
+            "from": 0,
+            "to": 8
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "paddleboarding": {
+        "label": {
+            "CZ": "Paddleboarding",
+            "EN": "Paddleboarding"
+        },
+        "temperature": {
+            "from": 18,
+            "to": 30
+        },
+        "wind": {
+            "from": 5,
+            "to": 15
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "triathlon": {
+        "label": {
+            "CZ": "Triatlon",
+            "EN": "Triathlon"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 30
+        },
+        "wind": {
+            "from": 5,
+            "to": 20
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "snorkeling": {
+        "label": {
+            "CZ": "Potápění s šnorchlem",
+            "EN": "Snorkeling"
+        },
+        "temperature": {
+            "from": 20,
+            "to": 35
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "softball": {
+        "label": {
+            "CZ": "Softball",
+            "EN": "Softball"
+        },
+        "temperature": {
+            "from": 15,
+            "to": 30
+        },
+        "wind": {
+            "from": 0,
+            "to": 10
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "rockClimbing": {
+        "label": {
+            "CZ": "Lezení po skalách",
+            "EN": "Rock Climbing"
+        },
+        "temperature": {
+            "from": 5,
+            "to": 20
+        },
+        "wind": {
+            "from": 0,
+            "to": 10
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "windsurfing": {
+        "label": {
+            "CZ": "Windsurfing",
+            "EN": "Windsurfing"
+        },
+        "temperature": {
+            "from": 18,
+            "to": 30
+        },
+        "wind": {
+            "from": 15,
+            "to": 30
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "kitesurfing": {
+        "label": {
+            "CZ": "Kitesurfing",
+            "EN": "Kitesurfing"
+        },
+        "temperature": {
+            "from": 18,
+            "to": 30
+        },
+        "wind": {
+            "from": 20,
+            "to": 35
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "windsurfingRace": {
+        "label": {
+            "CZ": "Windsurfing Race",
+            "EN": "Windsurfing Race"
+        },
+        "temperature": {
+            "from": 20,
+            "to": 35
+        },
+        "wind": {
+            "from": 25,
+            "to": 40
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "windFoil": {
+        "label": {
+            "CZ": "Wind Foil",
+            "EN": "Wind Foil"
+        },
+        "temperature": {
+            "from": 20,
+            "to": 35
+        },
+        "wind": {
+            "from": 25,
+            "to": 40
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 10
+        }
+    },
+    "iceSailing": {
+        "label": {
+            "CZ": "Ice Sailing",
+            "EN": "Ice Sailing"
+        },
+        "temperature": {
+            "from": -15,
+            "to": 5
+        },
+        "wind": {
+            "from": 20,
+            "to": 40
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "iceHockey": {
+        "label": {
+            "CZ": "Lední hokej",
+            "EN": "Ice Hockey"
+        },
+        "temperature": {
+            "from": -10,
+            "to": 5
+        },
+        "wind": {
+            "from": 0,
+            "to": 8
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "figureSkating": {
+        "label": {
+            "CZ": "Krasobruslení",
+            "EN": "Figure Skating"
+        },
+        "temperature": {
+            "from": -10,
+            "to": 5
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "speedSkating": {
+        "label": {
+            "CZ": "Rychlobruslení",
+            "EN": "Speed Skating"
+        },
+        "temperature": {
+            "from": -10,
+            "to": 5
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "biathlon": {
+        "label": {
+            "CZ": "Biatlon",
+            "EN": "Biathlon"
+        },
+        "temperature": {
+            "from": -15,
+            "to": 0
+        },
+        "wind": {
+            "from": 0,
+            "to": 10
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    },
+    "curling": {
+        "label": {
+            "CZ": "Curling",
+            "EN": "Curling"
+        },
+        "temperature": {
+            "from": -10,
+            "to": 5
+        },
+        "wind": {
+            "from": 0,
+            "to": 5
+        },
+        "precipitation": {
+            "from": 0,
+            "to": 5
+        }
+    }
+}
