@@ -5,7 +5,7 @@ export const czTranslations = {
   discoverPerfectDay: 'Objevte svůj dokonalý den pro aktivitu',
   activity: 'Aktivita',
   location: 'Místo',
-  lowPrecipitation: 'Nízká srážková aktivita',
+  lowPrecipitation: 'Nízké srážky',
   simpleSearch: 'Jednoduché vyhledávání',
   advancedSearch: 'Pokročilé vyhledávání',
   search: 'Hledat',
