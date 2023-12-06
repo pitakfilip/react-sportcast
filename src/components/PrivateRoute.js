@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useAuth0 } from '../react-auth0-spa';
 import Header from './header/Header';
 import { makeStyles } from '@mui/styles';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -26,20 +27,20 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 	const { isAuthenticated, loginWithRedirect } = useAuth0();
 	const location = useLocation();
 
-	// useEffect(() => {
-	//     const fn = async () => {
-	//         if (!isAuthenticated) {
-	//             await loginWithRedirect({
-	//                 appState: {targetUrl: location.pathname},
-	//             });
-	//         }
-	//     };
-	//     fn();
-	// }, [isAuthenticated, loginWithRedirect, location]);
-	//
-	// if (!isAuthenticated) {
-	//     return null;
-	// }
+	useEffect(() => {
+	    const fn = async () => {
+	        if (!isAuthenticated) {
+	            await loginWithRedirect({
+	                appState: {targetUrl: location.pathname},
+	            });
+	        }
+	    };
+	    fn();
+	}, [isAuthenticated, loginWithRedirect, location]);
+	
+	if (!isAuthenticated) {
+	    return null;
+	}
 	return (
 		<div className={classes.root}>
 			<div className={classes.content}>
