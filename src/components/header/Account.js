@@ -56,7 +56,8 @@ const Account = () => {
 							vertical: 'top',
 							horizontal: 'right',
 						}}
-						getContentAnchorEl={null}
+            // getContentAnchorEl deprecated in MUI5
+						// getContentAnchorEl={null}
 			>
 				<MenuItem onClick={openSettings}>
 					<ListItemIcon><Settings/></ListItemIcon>

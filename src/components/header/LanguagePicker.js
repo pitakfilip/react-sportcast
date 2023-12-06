@@ -68,7 +68,8 @@ const LanguagePicker = () => {
 					vertical: 'top',
 					horizontal: 'center',
 				}}
-				getContentAnchorEl={null}
+        // getContentAnchorEl deprecated in MUI5
+        // getContentAnchorEl={null}
 			>
 				{Languages.map((option) => (
 					<MenuItem
