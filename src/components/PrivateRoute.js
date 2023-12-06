@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useLocation} from 'react-router-dom';
-import {useAuth0} from '../react-auth0-spa';
+import { useLocation } from 'react-router-dom';
+import { useAuth0 } from '../react-auth0-spa';
 import Header from './header/Header';
-import {makeStyles} from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const PrivateRoute = ({component: Component, ...rest}) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
 	const classes = useStyles();
-	const {isAuthenticated, loginWithRedirect} = useAuth0();
+	const { isAuthenticated, loginWithRedirect } = useAuth0();
 	const location = useLocation();
 
 	// useEffect(() => {
@@ -43,11 +43,11 @@ const PrivateRoute = ({component: Component, ...rest}) => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.content}>
-				<Header/>
-				<Component {...rest}/>
+				<Header />
+				<Component {...rest} />
 			</div>
 		</div>
-	)
+	);
 };
 
 PrivateRoute.propTypes = {

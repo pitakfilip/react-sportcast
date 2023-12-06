@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import PropTypes from 'prop-types';
-import {createInstance} from './utils/api';
+import { createInstance } from './utils/api';
 
 import authConfig from './auth_config.json';
 
@@ -9,13 +9,13 @@ const DEFAULT_REDIRECT_CALLBACK = () => window.history.replaceState({}, document
 
 export const Auth0Context = React.createContext();
 export const useAuth0 = () => useContext(Auth0Context);
-export const Auth0Provider = ({children, onRedirectCallback = DEFAULT_REDIRECT_CALLBACK, ...initOptions}) => {
+export const Auth0Provider = ({ children, onRedirectCallback = DEFAULT_REDIRECT_CALLBACK, ...initOptions }) => {
 	const [isAuthenticated, setIsAuthenticated] = useState();
 	const [user, setUser] = useState();
 	const [auth0Client, setAuth0] = useState();
 	const [loading, setLoading] = useState(true);
 	const [popupOpen, setPopupOpen] = useState(false);
-	const [{apiSun, apiTemp, apiAir, apiEnergy, grassApi, customDataApi}, setAllApis] = useState({
+	const [{ apiSun, apiTemp, apiAir, apiEnergy, grassApi, customDataApi }, setAllApis] = useState({
 		apiSun: {},
 		apiTemp: {},
 		apiAir: {},
@@ -26,7 +26,7 @@ export const Auth0Provider = ({children, onRedirectCallback = DEFAULT_REDIRECT_C
 
 	useEffect(() => {
 		if (user) {
-			const {sun, air, temp, energy, grass, customData} = user;
+			const { sun, air, temp, energy, grass, customData } = user;
 			setAllApis({
 				apiSun: createInstance(sun),
 				apiTemp: createInstance(temp),
@@ -44,7 +44,7 @@ export const Auth0Provider = ({children, onRedirectCallback = DEFAULT_REDIRECT_C
 			setAuth0(auth0FromHook);
 
 			if (window.location.search.includes('code=')) {
-				const {appState} = await auth0FromHook.handleRedirectCallback();
+				const { appState } = await auth0FromHook.handleRedirectCallback();
 				onRedirectCallback(appState);
 			}
 
@@ -96,18 +96,18 @@ export const Auth0Provider = ({children, onRedirectCallback = DEFAULT_REDIRECT_C
 	 */
 	const updateProfile = async (userData) => {
 		if (isAuthenticated) {
-			const [{_id, ...body}] = await apiSun.get('/rest/auth');
-			const {access_token} = await (
+			const [{ _id, ...body }] = await apiSun.get('/rest/auth');
+			const { access_token } = await (
 				await fetch(`https://${authConfig.domain}/oauth/token`, {
 					method: 'POST',
-					headers: {'content-type': 'application/json'},
+					headers: { 'content-type': 'application/json' },
 					body: JSON.stringify(body),
 				})
 			).json();
 			return (
 				await fetch(`https://${authConfig.domain}/api/v2/users/${user.sub}`, {
 					method: 'PATCH',
-					headers: {Authorization: `Bearer ${access_token}`, 'Content-Type': 'application/json'},
+					headers: { Authorization: `Bearer ${access_token}`, 'Content-Type': 'application/json' },
 					body: JSON.stringify(userData),
 				})
 			).json();
@@ -115,7 +115,7 @@ export const Auth0Provider = ({children, onRedirectCallback = DEFAULT_REDIRECT_C
 	};
 
 	const updateData = (team) => async (customData, id) =>
-		customDataApi.post(`/rest/${team || 'ucitele'}`, {data: customData, ...(id && {_id: id})});
+		customDataApi.post(`/rest/${team || 'ucitele'}`, { data: customData, ...(id && { _id: id }) });
 
 	return (
 		<Auth0Context.Provider

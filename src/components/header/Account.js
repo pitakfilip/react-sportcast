@@ -1,15 +1,15 @@
 import React from 'react';
-import {Avatar, Divider, ListItemIcon, ListItemText, Menu, MenuItem} from '@mui/material';
-import {makeStyles} from '@mui/styles';
-import {History, Logout, Person, Settings} from '@mui/icons-material';
+import { Avatar, Divider, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { History, Logout, Person, Settings } from '@mui/icons-material';
 
 const useStyles = makeStyles((theme) => {
 	return {
 		root: {},
 		blue: {
 			color: 'white',
-			background: '#0770DA'
-		}
+			background: '#0770DA',
+		},
 	};
 });
 
@@ -37,45 +37,48 @@ const Account = () => {
 
 	return (
 		<div className={classes.root}>
-			<Avatar className={classes.blue}
-							aria-label="Account Settings"
-							aria-expanded={open ? 'true' : undefined}
-							onClick={handleClick}
-			>
-				<Person/>
+			<Avatar className={classes.blue} aria-label="Account Settings" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
+				<Person />
 			</Avatar>
-			<Menu id="account-menu"
-						anchorEl={anchorEl}
-						open={open}
-						onClose={handleClose}
-						anchorOrigin={{
-							vertical: 'bottom',
-							horizontal: 'right',
-						}}
-						transformOrigin={{
-							vertical: 'top',
-							horizontal: 'right',
-						}}
-            // getContentAnchorEl deprecated in MUI5
-						// getContentAnchorEl={null}
+			<Menu
+				id="account-menu"
+				anchorEl={anchorEl}
+				open={open}
+				onClose={handleClose}
+				anchorOrigin={{
+					vertical: 'bottom',
+					horizontal: 'right',
+				}}
+				transformOrigin={{
+					vertical: 'top',
+					horizontal: 'right',
+				}}
+				// getContentAnchorEl deprecated in MUI5
+				// getContentAnchorEl={null}
 			>
 				<MenuItem onClick={openSettings}>
-					<ListItemIcon><Settings/></ListItemIcon>
+					<ListItemIcon>
+						<Settings />
+					</ListItemIcon>
 					<ListItemText>Settings</ListItemText>
 				</MenuItem>
 				<MenuItem onClick={openHistory}>
-					<ListItemIcon><History/></ListItemIcon>
+					<ListItemIcon>
+						<History />
+					</ListItemIcon>
 					<ListItemText>History</ListItemText>
 				</MenuItem>
-				<Divider/>
+				<Divider />
 				<MenuItem onClick={logout}>
-					<ListItemIcon><Logout/></ListItemIcon>
+					<ListItemIcon>
+						<Logout />
+					</ListItemIcon>
 					<ListItemText>Logout</ListItemText>
 				</MenuItem>
 			</Menu>
 		</div>
 	);
-}
+};
 
 Account.propTypes = {};
 

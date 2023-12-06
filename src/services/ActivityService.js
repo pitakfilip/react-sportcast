@@ -1,11 +1,11 @@
 import activities from '../assets/activities.json';
-import {getLang} from './LanguageService';
+import { getLang } from './LanguageService';
 
 export const ActivityService = {
 	getAutocompleteEntries: () => {
 		try {
 			const entries = [];
-			Object.keys(activities).forEach(key => {
+			Object.keys(activities).forEach((key) => {
 				entries.push(key);
 
 				// const label = activities[key].label[currentLang];
@@ -20,10 +20,9 @@ export const ActivityService = {
 			throw error;
 		}
 	},
-	getLabel: (key: String) => {
+	getLabel: (key) => {
 		const currentLang = getLang();
 		const label = activities[key].label[currentLang];
-		return (label) ? label : key;
-	}
-}
-
+		return label ? label : key;
+	},
+};

@@ -1,9 +1,9 @@
-import {useMemo, useEffect, useState, useCallback} from 'react';
-import {useLocation} from 'react-router-dom';
-import {useAuth0} from '../react-auth0-spa';
+import { useMemo, useEffect, useState, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useAuth0 } from '../react-auth0-spa';
 
 export const useType = () => {
-	const {search} = useLocation();
+	const { search } = useLocation();
 	const type = useMemo(() => {
 		return new URLSearchParams(search).get('type');
 	}, [search]);
@@ -11,14 +11,14 @@ export const useType = () => {
 };
 
 export const useCustomData = (team) => {
-	const {customDataApi, updateData} = useAuth0();
+	const { customDataApi, updateData } = useAuth0();
 	const getCustomData = async (id) => customDataApi.get(`/rest/${team || 'ucitele'}${id ? `?q={"_id":"${id}"}` : ''}`);
 	return [getCustomData, updateData(team)];
 };
 
 export const useRest = (type) => {
-	const {apiSun, apiTemp, apiAir, apiEnergy} = useAuth0();
-	const [{resource, rest}, setRestApi] = useState({});
+	const { apiSun, apiTemp, apiAir, apiEnergy } = useAuth0();
+	const [{ resource, rest }, setRestApi] = useState({});
 	const typeMapper = useCallback(
 		(resourceType) => {
 			const apiTypes = {
@@ -72,5 +72,5 @@ export const useRest = (type) => {
 		setRestApi(typeMapper(type));
 	}, [type]);
 
-	return [{resource, rest}, setRestApi];
+	return [{ resource, rest }, setRestApi];
 };

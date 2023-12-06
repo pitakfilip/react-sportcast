@@ -1,14 +1,13 @@
 import json from '../assets/cityStations.json';
 
-
 export const CityService = {
 	getCities: () => {
 		try {
 			const entries = [];
-			Object.keys(json).forEach(key => {
+			Object.keys(json).forEach((key) => {
 				const station = json[key];
 				if (station) {
-					entries.push({name: key, weatherStation: station});
+					entries.push({ name: key, weatherStation: station });
 				}
 			});
 
@@ -25,5 +24,5 @@ export const CityService = {
 			console.error('Error getting citites:', error);
 			throw error;
 		}
-	}
-}
+	},
+};
