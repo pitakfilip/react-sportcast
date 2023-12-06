@@ -10,6 +10,7 @@ import LandingPage from './views/LandingPage';
 import SearchPage from './views/SearchPage';
 import ResultPage from './views/ResultPage';
 import {createTheme, CssBaseline, ThemeProvider} from '@mui/material';
+import TranslationTestPage from './views/TranslationTestPage';
 
 const exampleReducer = (state = {}, action) => {
 	return (
@@ -48,6 +49,7 @@ const App = () => {
 								<Route index path="/" element={<LandingPage/>}/>
 								<Route path="/search" element={<PrivateRoute component={SearchPage}/>}/>
 								<Route path="/result" element={<PrivateRoute component={ResultPage}/>}/>
+                <Route path="/translation" element={<TranslationTestPage/>}/>
 							</Routes>
 						</main>
 					</ThemeProvider>

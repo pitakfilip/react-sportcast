@@ -6,6 +6,7 @@ import {loadJson, storeJson} from '../services/LocalStorageService';
 import PropTypes from 'prop-types';
 import {Search, Tune} from '@mui/icons-material';
 import {CityService} from '../services/CityService';
+import { translate } from '../services/LanguageService';
 
 const useStyles = makeStyles((theme) => {
 	return {
@@ -68,7 +69,7 @@ const SearchForm = ({showTitle}) => {
 					return (<Grid item>
 						<div className={classes.title}>
 							<span><Search fontSize={'large'}/></span>
-							<span>{'Discover Your Perfect Activity Day'}</span>
+							<span>{translate('discoverPerfectDay')}</span>
 						</div>
 					</Grid>)
 				}
@@ -83,7 +84,7 @@ const SearchForm = ({showTitle}) => {
 						options={ActivityService.getAutocompleteEntries()}
 						getOptionLabel={(option) => ActivityService.getLabel(option)}
 						isOptionEqualToValue={(option, value) => option.key === value.key}
-						renderInput={(params) => <TextField {...params} label="Activity"/>}
+						renderInput={(params) => <TextField {...params} label={translate('activity')}/>}
 					/>
 				</Grid>
 
