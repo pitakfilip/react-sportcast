@@ -49,7 +49,7 @@ const App = () => {
 								<Route index path="/" element={<LandingPage/>}/>
 								<Route path="/search" element={<PrivateRoute component={SearchPage}/>}/>
 								<Route path="/result" element={<PrivateRoute component={ResultPage}/>}/>
-                <Route path="/translation" element={<TranslationTestPage/>}/>
+                <Route path="/translation" element={<PrivateRoute component={TranslationTestPage}/>}/>
 							</Routes>
 						</main>
 					</ThemeProvider>
