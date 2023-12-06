@@ -1,19 +1,19 @@
-export const storeJson = (key: String, jsonObj: any) => {
+export const storeJson = (key, jsonObj) => {
 	localStorage.setItem(key, JSON.stringify(jsonObj));
-}
+};
 
-export const loadJson = (key: String) => {
+export const loadJson = (key) => {
 	const data = localStorage.getItem(key);
 	if (data) {
 		return JSON.parse(data);
 	}
 	return null;
-}
+};
 
-export const storeValue = (key: String, value: String) => {
+export const storeValue = (key, value) => {
 	localStorage.setItem(key, value);
-}
+};
 
-export const loadValue = (key: String) => {
+export const loadValue = (key) => {
 	localStorage.getItem(key);
-}
+};

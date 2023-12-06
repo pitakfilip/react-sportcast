@@ -1,5 +1,5 @@
 import React from 'react';
-import {makeStyles} from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => {
 	return {
@@ -8,13 +8,13 @@ const useStyles = makeStyles((theme) => {
 			flexDirection: 'column',
 			alignItems: 'center',
 			gap: '1em',
-			textAlign: 'justify'
+			textAlign: 'justify',
 		},
 		section: {
 			display: 'inline-flex',
 			gap: '1em',
-			alignItems: 'center'
-		}
+			alignItems: 'center',
+		},
 	};
 });
 
@@ -23,9 +23,7 @@ const SearchSlide = () => {
 
 	return (
 		<div className={classes.root}>
-			<section className={classes.section}>
-				{/* TODO */}
-			</section>
+			<section className={classes.section}>{/* TODO */}</section>
 		</div>
 	);
 };

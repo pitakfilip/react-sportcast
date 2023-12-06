@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow} from '@mui/material';
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material';
 
-const BasicTable = ({data, onPageSelect, onPerPageSelect, perPage, page}) => {
+const BasicTable = ({ data, onPageSelect, onPerPageSelect, perPage, page }) => {
 	return (
 		<div>
 			<TablePagination
@@ -14,7 +14,7 @@ const BasicTable = ({data, onPageSelect, onPerPageSelect, perPage, page}) => {
 				onRowsPerPageChange={onPerPageSelect}
 			/>
 			<TableContainer component={Paper}>
-				<Table sx={{minWidth: 650}} aria-label="simple table">
+				<Table sx={{ minWidth: 650 }} aria-label="simple table">
 					<TableHead>
 						<TableRow>
 							{[...new Array(31)].map((_val, key) => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {useAuth0} from './react-auth0-spa';
+import { useAuth0 } from './react-auth0-spa';
 
 jest.mock('./react-auth0-spa');
 
@@ -14,7 +14,7 @@ describe('app', () => {
 	});
 	it('renders without crashing', () => {
 		const div = document.createElement('div');
-		ReactDOM.render(<App/>, div);
+		ReactDOM.render(<App />, div);
 		ReactDOM.unmountComponentAtNode(div);
 	});
 });

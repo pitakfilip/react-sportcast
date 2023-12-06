@@ -1,13 +1,13 @@
 import React from 'react';
-import {Menu, MenuItem} from '@mui/material';
-import {makeStyles} from '@mui/styles';
-import {changeLang, getLang, Languages} from '../../services/LanguageService';
-import {ExpandMore} from '@mui/icons-material';
+import { Menu, MenuItem } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { changeLang, getLang, Languages } from '../../services/LanguageService';
+import { ExpandMore } from '@mui/icons-material';
 
 const useStyles = makeStyles((theme) => {
 	return {
 		root: {
-			fontSize: '1em'
+			fontSize: '1em',
 		},
 		button: {
 			border: 'none',
@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => {
 			alignItems: 'center',
 		},
 		icon: {
-			fontSize: '1.2em'
-		}
+			fontSize: '1.2em',
+		},
 	};
 });
 
@@ -40,19 +40,16 @@ const LanguagePicker = () => {
 		changeLang(lang);
 		currLang = lang;
 		handleClose();
-	}
+	};
 
 	return (
 		<div className={classes.root}>
-			<button
-				className={classes.button}
-				aria-label="Change Language"
-				aria-expanded={open ? 'true' : undefined}
-				onClick={handleClick}
-			>
+			<button className={classes.button} aria-label="Change Language" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
 				<div className={classes.buttonContent}>
 					<span>{currLang}</span>
-					<span><ExpandMore className={classes.icon}/></span>
+					<span>
+						<ExpandMore className={classes.icon} />
+					</span>
 				</div>
 			</button>
 			<Menu
@@ -68,22 +65,16 @@ const LanguagePicker = () => {
 					vertical: 'top',
 					horizontal: 'center',
 				}}
-        // getContentAnchorEl deprecated in MUI5
-        // getContentAnchorEl={null}
+				// getContentAnchorEl deprecated in MUI5
+				// getContentAnchorEl={null}
 			>
 				{Languages.map((option) => (
-					<MenuItem
-						key={option}
-						selected={option === currLang}
-						onClick={() => setLang(option)}
-					>
+					<MenuItem key={option} selected={option === currLang} onClick={() => setLang(option)}>
 						{option}
 					</MenuItem>
 				))}
 			</Menu>
 		</div>
 	);
-
-
 };
 export default LanguagePicker;

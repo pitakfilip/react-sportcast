@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector, useStore} from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import BasicTable from '../components/Table';
-import {useType, useRest, useCustomData} from '../utils/helpers';
-import {ResponsiveLine} from '@nivo/line';
+import { useType, useRest, useCustomData } from '../utils/helpers';
+import { ResponsiveLine } from '@nivo/line';
 import mean from 'lodash/mean';
 
-const queryBuilder = ({max = 15, skip = 0, filter, month}) => {
+const queryBuilder = ({ max = 15, skip = 0, filter, month }) => {
 	return `q={${filter ? `"year": ${filter}` : ''}${month ? `,"month": ${month}` : ''}}&max=${max}&skip=${skip}`;
 };
 
@@ -32,7 +32,7 @@ const dataFetched = (data) => {
 const fetchData = (api, rest, max = 10, skip = 0) => {
 	return (dispatch) => {
 		if (api) {
-			api.get(`/rest/${rest}?${queryBuilder({max, skip})}`).then((data) => {
+			api.get(`/rest/${rest}?${queryBuilder({ max, skip })}`).then((data) => {
 				dispatch(dataFetched(data));
 			});
 		}
@@ -314,8 +314,8 @@ const chartData = [
 
 const HomePage = () => {
 	const type = useType();
-	const [{resource, rest}] = useRest(type);
-	const [{resource: energy, rest: restEnergy}] = useRest('energy');
+	const [{ resource, rest }] = useRest(type);
+	const [{ resource: energy, rest: restEnergy }] = useRest('energy');
 	const [getData, updateData] = useCustomData();
 	console.log(updateData, getData, 'this is updateData');
 	console.log('==========');
@@ -333,8 +333,8 @@ const HomePage = () => {
 	console.log(fetchData);
 
 	const dispatch = useDispatch();
-	const data = useSelector(({exampleReducer}) => exampleReducer.data);
-	const [{max, skip}, setPagination] = useState({
+	const data = useSelector(({ exampleReducer }) => exampleReducer.data);
+	const [{ max, skip }, setPagination] = useState({
 		max: 10,
 		skip: 0,
 	});
@@ -349,18 +349,18 @@ const HomePage = () => {
 			// resource.get(`/rest/sunshine?${queryBuilder({ max: 10, filter: 2000 })}`).then((data) => {
 			//   setMyData(data);
 			// });
-			resource.get(`/rest/${rest}?${queryBuilder({max: 1000, skip: 2000})}`).then(console.log);
+			resource.get(`/rest/${rest}?${queryBuilder({ max: 1000, skip: 2000 })}`).then(console.log);
 			dispatch(fetchData(resource, rest, max, skip));
 		}
 	}, [resource, max, skip, rest]);
 
 	const chartData2 = (data || []).reduce(
-		(acc, {_id, year, month, ...item}) => ({
+		(acc, { _id, year, month, ...item }) => ({
 			...acc,
 			[year]: {
 				id: year,
 				color: 'hsl(95, 70%, 50%)',
-				data: [...((acc[year] && acc[year].data) || []), {x: month, y: mean(Object.values(item))}],
+				data: [...((acc[year] && acc[year].data) || []), { x: month, y: mean(Object.values(item)) }],
 			},
 		}),
 		{}
@@ -376,7 +376,7 @@ const HomePage = () => {
 				perPage={max}
 				page={skip / max}
 				onPageSelect={(_e, page) => {
-					setPagination(({max}) => ({
+					setPagination(({ max }) => ({
 						max,
 						skip: max * page,
 					}));
@@ -388,12 +388,12 @@ const HomePage = () => {
 					});
 				}}
 			/>
-			<div style={{height: '500px'}}>
+			<div style={{ height: '500px' }}>
 				{data && (
 					<ResponsiveLine
 						data={Object.values(chartData2)}
-						margin={{top: 50, right: 110, bottom: 50, left: 60}}
-						xScale={{type: 'point'}}
+						margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+						xScale={{ type: 'point' }}
 						yScale={{
 							type: 'linear',
 							min: 'auto',
@@ -423,9 +423,9 @@ const HomePage = () => {
 							legendPosition: 'middle',
 						}}
 						pointSize={10}
-						pointColor={{theme: 'background'}}
+						pointColor={{ theme: 'background' }}
 						pointBorderWidth={2}
-						pointBorderColor={{from: 'serieColor'}}
+						pointBorderColor={{ from: 'serieColor' }}
 						pointLabelYOffset={-12}
 						useMesh={true}
 						legends={[

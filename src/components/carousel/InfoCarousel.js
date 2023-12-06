@@ -1,19 +1,19 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import IntroSlide from './slides/IntroSlide';
 import Carousel from 'react-material-ui-carousel';
 import SearchSlide from './slides/SearchSlide';
 import WeatherCardSlide from './slides/WeatherCardSlide';
-import {Paper} from '@mui/material';
-import {makeStyles} from '@mui/styles';
+import { Paper } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => {
 	return {
 		root: {
-			width: '100%'
+			width: '100%',
 		},
 		paper: {
-			padding: '10%'
-		}
+			padding: '10%',
+		},
 	};
 });
 
@@ -25,8 +25,8 @@ const carrouselSettings = {
 	navButtonsAlwaysInvisible: false,
 	cycleNavigation: true,
 	fullHeightHover: true,
-	swipe: true
-}
+	swipe: true,
+};
 
 const InfoCarousel = () => {
 	const classes = useStyles();
@@ -36,22 +36,21 @@ const InfoCarousel = () => {
 	return (
 		<div className={classes.root}>
 			<Carousel
-				navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+				navButtonsProps={{
+					// Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
 					style: {
 						backgroundColor: '#0770DA',
-					}
+					},
 				}}
 				{...settings}
 			>
-				{
-					carouselItems.map((Component, index) => {
-						return (
-							<Paper className={classes.paper} key={index} style={{height: '100%'}}>
-								<Component/>
-							</Paper>
-						)
-					})
-				}
+				{carouselItems.map((Component, index) => {
+					return (
+						<Paper className={classes.paper} key={index} style={{ height: '100%' }}>
+							<Component />
+						</Paper>
+					);
+				})}
 			</Carousel>
 		</div>
 	);
