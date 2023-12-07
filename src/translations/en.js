@@ -21,5 +21,7 @@ export const enTranslations = {
 	temperature: 'Temperature',
 	precipitation: 'Precipitation',
 	windSpeed: 'Wind Speed',
-	clear: 'Clear'
+	clear: 'Clear',
+	exploreTitle: 'Explore Popular',
+	exploreSubTitle: 'Try one of our top 3 activities'
 };

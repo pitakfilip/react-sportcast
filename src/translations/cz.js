@@ -21,5 +21,7 @@ export const czTranslations = {
 	temperature: 'Teplota',
 	precipitation: 'Srážky',
 	windSpeed: 'Rychlost větru',
-	clear: 'Obnovit'
+	clear: 'Obnovit',
+	exploreTitle: 'Prozkoumejte oblíbené',
+	exploreSubTitle: 'Vyzkoušejte jednu z našich 3 nejlepších aktivit'
 };
