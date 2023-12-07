@@ -1,21 +1,8 @@
 import React from 'react';
 import { Avatar, Divider, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import { History, Logout, Person, Settings } from '@mui/icons-material';
 
-const useStyles = makeStyles((theme) => {
-	return {
-		root: {},
-		blue: {
-			color: 'white',
-			background: '#0770DA',
-		},
-	};
-});
-
 const Account = () => {
-	const classes = useStyles();
-
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
 	const handleClick = (event) => {
@@ -36,8 +23,8 @@ const Account = () => {
 	};
 
 	return (
-		<div className={classes.root}>
-			<Avatar className={classes.blue} aria-label="Account Settings" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
+		<div>
+			<Avatar sx={{ bgcolor: '#0770DA' }} aria-label="Account Settings" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
 				<Person />
 			</Avatar>
 			<Menu
@@ -53,8 +40,6 @@ const Account = () => {
 					vertical: 'top',
 					horizontal: 'right',
 				}}
-				// getContentAnchorEl deprecated in MUI5
-				// getContentAnchorEl={null}
 			>
 				<MenuItem onClick={openSettings}>
 					<ListItemIcon>

@@ -1,5 +1,5 @@
 import activities from '../assets/activities.json';
-import { getLang } from './LanguageService';
+import {getLang} from './LanguageService';
 
 export const ActivityService = {
 	getAutocompleteEntries: () => {
@@ -22,7 +22,24 @@ export const ActivityService = {
 	},
 	getLabel: (key) => {
 		const currentLang = getLang();
-		const label = activities[key].label[currentLang];
-		return label ? label : key;
+		if (activities[key]) {
+			const label = activities[key]?.label[currentLang];
+			return label ? label : key;
+		}
+		return key;
 	},
+	getActivityPreset: (key) => {
+		if (key === null || key === undefined) {
+			return null;
+		}
+
+		const vals = activities[key];
+		return {
+			temperatureFrom: vals.temperature.from,
+			temperatureTo: vals.temperature.to,
+			precipitation: vals.precipitation.to,
+			windSpeedFrom: vals.wind.from,
+			windSpeedTo: vals.wind.to
+		}
+	}
 };

@@ -17,3 +17,7 @@ export const storeValue = (key, value) => {
 export const loadValue = (key) => {
 	localStorage.getItem(key);
 };
+
+export const unsetKey = (key) => {
+	localStorage.removeItem(key);
+}

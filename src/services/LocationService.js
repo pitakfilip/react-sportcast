@@ -1,7 +1,7 @@
 import json from '../assets/cityStations.json';
 
-export const CityService = {
-	getCities: () => {
+export const LocationService = {
+	getCitiesMap: () => {
 		try {
 			const entries = [];
 			Object.keys(json).forEach((key) => {
@@ -12,6 +12,14 @@ export const CityService = {
 			});
 
 			return entries;
+		} catch (error) {
+			console.error('Error getting citites:', error);
+			throw error;
+		}
+	},
+	getCities: () => {
+		try {
+			return Object.keys(json);
 		} catch (error) {
 			console.error('Error getting citites:', error);
 			throw error;
