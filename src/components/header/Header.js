@@ -37,8 +37,8 @@ const Header = () => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.content}>
-				<a onClick={() => navigate('/search')}>
-					<Logo scale={1.4} />
+				<a onClick={() => navigate('/search')} style={{cursor: 'pointer'}}>
+					<Logo scale={1.3} />
 				</a>
 				<section className={classes.rightSection}>
 					<LanguagePicker />
