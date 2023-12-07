@@ -13,6 +13,7 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import TranslationTestPage from './views/TranslationTestPage';
 import Loading from './components/Loading';
 import { useAuth0 } from './react-auth0-spa';
+import APITestPage from './views/APITestPage';
 
 const exampleReducer = (state = {}, action) => {
 	return (
@@ -52,6 +53,7 @@ const App = () => {
 								<Route path="/search" element={<PrivateRoute component={SearchPage} />} />
 								<Route path="/result" element={<PrivateRoute component={ResultPage} />} />
 								<Route path="/translation" element={<PrivateRoute component={TranslationTestPage} />} />
+                <Route path="api" element={<PrivateRoute component={APITestPage}/>}/>
 							</Routes>
 						</main>
 					</ThemeProvider>
