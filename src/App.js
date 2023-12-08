@@ -37,7 +37,7 @@ const App = () => {
 	const { loading } = useAuth0();
 
 	if (loading) {
-	  return <Loading />;
+		return <Loading />;
 	}
 
 	return (
@@ -52,7 +52,7 @@ const App = () => {
 								<Route path="/search" element={<PrivateRoute component={SearchPage} />} />
 								<Route path="/result" element={<PrivateRoute component={ResultPage} />} />
 								<Route path="/translation" element={<PrivateRoute component={TranslationTestPage} />} />
-                <Route path="api" element={<PrivateRoute component={APITestPage}/>}/>
+								<Route path="api" element={<PrivateRoute component={APITestPage} />} />
 							</Routes>
 						</main>
 					</ThemeProvider>
