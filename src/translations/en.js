@@ -15,4 +15,13 @@ export const enTranslations = {
 		'Whether you are gearing up for a thrilling game of football, an adventurous hike, or a scenic cycling tour, SportCast has got you covered. Simply find a suitable activity for your plans in next 10 days, and we will analyze the weather for you to make the most of your outdoor pursuits.',
 	introDont:
 		"Don't let unpredictable weather dampen your plans – embrace the outdoors with SportCast and seize every opportunity to stay active and engaged!",
+	activityErr: 'Please specify an activity',
+	locationErr: 'Please specify a location for your activity',
+	advancedErr: 'Each weather factor requires atleast one value',
+	temperature: 'Temperature',
+	precipitation: 'Precipitation',
+	windSpeed: 'Wind Speed',
+	clear: 'Clear',
+	exploreTitle: 'Explore Popular',
+	exploreSubTitle: 'Try one of our top 3 activities'
 };

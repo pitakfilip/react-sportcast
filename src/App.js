@@ -34,9 +34,8 @@ const store = createStore(combineReducers({ exampleReducer }), applyMiddleware(t
 const globalTheme = createTheme();
 
 const App = () => {
-	// TODO uncomment when we need to enable auth0
 	const { loading } = useAuth0();
-	
+
 	if (loading) {
 	  return <Loading />;
 	}

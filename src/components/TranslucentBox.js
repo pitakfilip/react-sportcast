@@ -2,20 +2,19 @@ import React from 'react';
 import { makeStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
-const TranslucentBox = ({ component: Component, width, height }) => {
+
+const TranslucentBox = ({component: Component, width, height, ...props}) => {
 	const useStyles = makeStyles((theme) => {
 		return {
 			root: {
-				width: width !== undefined ? `${width}%` : 'auto',
-				height: height !== undefined ? `${height}%` : 'auto',
-				border: '1px solid black',
+				width: (width !== undefined) ? `${width}%` : 'auto',
+				height: (height !== undefined) ? `${height}%` : 'auto',
+				border: '1px solid #0770DA',
 				borderRadius: '1.5em',
-				backgroundColor: 'rgba(216,235,255,0.8)',
+				backgroundColor: 'rgba(216,235,255,0.85)',
 				padding: '2em',
 			},
 			inner: {
-				backgroundColor: 'pink',
-				border: '2px solid red',
 				// width: 'fit-content',
 				height: 'fit-content',
 			},
@@ -26,7 +25,7 @@ const TranslucentBox = ({ component: Component, width, height }) => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.inner}>
-				<Component />
+				<Component {...props}/>
 			</div>
 		</div>
 	);

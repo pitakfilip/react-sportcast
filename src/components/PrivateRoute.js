@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { useAuth0 } from '../react-auth0-spa';
@@ -37,7 +37,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 	    };
 	    fn();
 	}, [isAuthenticated, loginWithRedirect, location]);
-	
+
 	if (!isAuthenticated) {
 	    return null;
 	}
