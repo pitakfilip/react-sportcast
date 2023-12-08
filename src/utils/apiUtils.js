@@ -10,7 +10,7 @@ export const useSportData = (sportType) => {
 	const [{ resource: tempResource, rest: tempRest }] = useRest('temp-avg');
 	const [{ resource: windResource, rest: windRest }] = useRest('speed');
 
-	const fakeYear = 2021;
+	const fakeYear = 2017;
 	const forecastDaysNumber = 10;
 
 	const fetchDataForNextTwoMonths = async () => {
@@ -73,36 +73,30 @@ export const useSportData = (sportType) => {
 			forecast10Days.push({ date: date, day: date.getDay() });
 		}
 
+		// add precipitation, temperature and wind data to 10-day forecast
 		forecast10Days.forEach((forecastDay) => {
-			// add precipitation data to 10-day forecast
-			const precipitationMonth = weatherData.precipitation.find((entry) => entry.month === forecastDay.date.getMonth() + 1);
-			const precipitationValue = precipitationMonth[forecastDay.date.getDay()];
-			forecastDay['precipitation'] = precipitationValue;
+			const getWeatherValue = (data) => {
+				const monthData = data.find((entry) => entry.month === forecastDay.date.getMonth() + 1);
+				return monthData ? monthData[forecastDay.date.getDate()] : 0;
+			};
 
-			// add temperature data to 10-day forecast
-			const temperatureMonth = weatherData.temperature.find((entry) => entry.month === forecastDay.date.getMonth() + 1);
-			const temperatureValue = temperatureMonth[forecastDay.date.getDay()];
-			forecastDay['temperature'] = temperatureValue;
-
-			// add wind data to 10-day forecast
-			const windMonth = weatherData.wind.find((entry) => entry.month === forecastDay.date.getMonth() + 1);
-			const windValue = windMonth[forecastDay.date.getDay()];
-			forecastDay['wind'] = windValue;
+			forecastDay.precipitation = getWeatherValue(weatherData.precipitation);
+			forecastDay.temperature = getWeatherValue(weatherData.temperature);
+			forecastDay.wind = getWeatherValue(weatherData.wind);
 		});
 
-		return weatherData;
+		return forecast10Days;
 	};
 
-	const rateEachDay = (data) => {
-		return data;
-		// TODO Pass sport type as well
+	const rateEachDay = (forecastData, sportType) => {
+		return forecastData, sportType;
 		// Rating logic based on sport type here
 	};
 
 	const fetchDataAndProcess = async () => {
 		const weatherData = await fetchDataForNextTwoMonths();
 		const forecastData = filterDataForNext10Days(weatherData);
-		const ratedForecastData = rateEachDay(forecastData);
+		const ratedForecastData = rateEachDay(forecastData, sportType);
 		return ratedForecastData;
 	};
 
