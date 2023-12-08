@@ -10,38 +10,27 @@ export const useSportData = (sportType) => {
 	const [{ resource: tempResource, rest: tempRest }] = useRest('temp-avg');
 	const [{ resource: windResource, rest: windRest }] = useRest('speed');
 
-	const fakeYear = 2017;
+	const currentYear = 2017;
 	const forecastDaysNumber = 10;
+	const currentDate = new Date();
+	// change the year to go back in time
+	currentDate.setFullYear(currentYear);
 
 	const fetchDataForNextTwoMonths = async () => {
-		const currentDate = new Date();
-		const currentMonth = currentDate.getMonth() + 1; // Months are 0-indexed, so add 1.
+		const currentMonth = currentDate.getMonth() + 1; // Months are 0-indexed
 
+		// determine the next month
 		const isLastMonthOfYear = currentMonth === 12;
+		const nextMonth = isLastMonthOfYear ? 1 : currentMonth + 1;
+		const nextYear = isLastMonthOfYear ? currentYear + 1 : currentYear;
 
 		// Construct the $or query for RestDB API
 		const orQuery = [
-			{
-				year: fakeYear,
-				month: currentMonth,
-			},
+			{ year: currentYear, month: currentMonth },
+			{ year: nextYear, month: nextMonth },
 		];
 
-		if (isLastMonthOfYear === true) {
-			orQuery.push({
-				year: fakeYear + 1,
-				month: 1,
-			});
-		} else {
-			orQuery.push({
-				year: fakeYear,
-				month: currentMonth + 1,
-			});
-		}
-
-		const restQuery = {
-			$or: orQuery,
-		};
+		const restQuery = { $or: orQuery };
 
 		// Make API requests for precipitation, temperature, and wind
 		// TODO use real API requests
@@ -62,11 +51,9 @@ export const useSportData = (sportType) => {
 	};
 
 	const filterDataForNext10Days = (weatherData) => {
-		let currentDate = new Date();
-		currentDate.setFullYear(fakeYear);
 		const forecast10Days = [];
 
-		// 10 consecutive days starting today
+		// add 10 consecutive dates starting today
 		for (let i = 0; i < forecastDaysNumber; i++) {
 			let date = new Date(currentDate);
 			date.setDate(date.getDate() + i);
@@ -75,8 +62,10 @@ export const useSportData = (sportType) => {
 
 		// add precipitation, temperature and wind data to 10-day forecast
 		forecast10Days.forEach((forecastDay) => {
-			const getWeatherValue = (data) => {
-				const monthData = data.find((entry) => entry.month === forecastDay.date.getMonth() + 1);
+			const getWeatherValue = (dataset) => {
+				// find the right month in the dataset
+				const monthData = dataset.find((entry) => entry.month === forecastDay.date.getMonth() + 1);
+				// get weather value for the given date
 				return monthData ? monthData[forecastDay.date.getDate()] : 0;
 			};
 
@@ -85,6 +74,7 @@ export const useSportData = (sportType) => {
 			forecastDay.wind = getWeatherValue(weatherData.wind);
 		});
 
+		console.log(forecast10Days);
 		return forecast10Days;
 	};
 
