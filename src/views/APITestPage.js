@@ -8,9 +8,18 @@ const dataFetched = (data) => ({
 });
 
 const APITestPage = () => {
+	const searchData = {
+		activity: 'football',
+		location: 'Praha',
+		temperatureFrom: 15,
+		temperatureTo: 30,
+		precipitation: 5,
+		windSpeedFrom: 0,
+		windSpeedTo: 10,
+	};
 	const dispatch = useDispatch();
 	const data = useSelector(({ exampleReducer }) => exampleReducer.data);
-	const { fetchDataAndProcess } = useSportData('football'); // Pass the sport type
+	const { fetchDataAndProcess } = useSportData(searchData); // Pass the sport type
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -23,20 +32,11 @@ const APITestPage = () => {
 
 	return (
 		<div>
-			<h1>Results Page</h1>
+			<h1>API Test Page</h1>
 			{data && (
 				<div>
-					<h2>Precipitation Data</h2>
-					{/* Render Precipitation data */}
-					{/* Example: {data.precipitation.map(item => <div key={item.id}>{item.name}</div>)} */}
-
-					<h2>Temperature Data</h2>
-					{/* Render temperature data */}
-					{/* Example: {data.temperature.map(item => <div key={item.id}>{item.name}</div>)} */}
-
-					<h2>Wind Data</h2>
-					{/* Render wind data */}
-					{/* Example: {data.wind.map(item => <div key={item.id}>{item.name}</div>)} */}
+					<h2>10 day forecast</h2>
+					<code>{JSON.stringify(data)}</code>
 				</div>
 			)}
 		</div>

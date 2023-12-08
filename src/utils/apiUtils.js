@@ -1,10 +1,9 @@
-import { setDate } from 'date-fns';
 import { useAuth0 } from '../react-auth0-spa';
 import { useRest } from '../utils/helpers';
 // TODO delete import
 import { precipitationData, temperatureData, windData } from './fakeData';
 
-export const useSportData = (sportType) => {
+export const useSportData = (searchData) => {
 	const { apiSun, apiTemp, apiAir, apiEnergy } = useAuth0();
 	const [{ resource: precipResource, rest: precipRest }] = useRest('precipitation');
 	const [{ resource: tempResource, rest: tempRest }] = useRest('temp-avg');
@@ -51,17 +50,17 @@ export const useSportData = (sportType) => {
 	};
 
 	const filterDataForNext10Days = (weatherData) => {
-		const forecast10Days = [];
+		const forecastData = [];
 
 		// add 10 consecutive dates starting today
 		for (let i = 0; i < forecastDaysNumber; i++) {
 			let date = new Date(currentDate);
 			date.setDate(date.getDate() + i);
-			forecast10Days.push({ date: date, day: date.getDay() });
+			forecastData.push({ date: date, day: date.getDay() });
 		}
 
 		// add precipitation, temperature and wind data to 10-day forecast
-		forecast10Days.forEach((forecastDay) => {
+		forecastData.forEach((forecastDay) => {
 			const getWeatherValue = (dataset) => {
 				// find the right month in the dataset
 				const monthData = dataset.find((entry) => entry.month === forecastDay.date.getMonth() + 1);
@@ -74,19 +73,35 @@ export const useSportData = (sportType) => {
 			forecastDay.wind = getWeatherValue(weatherData.wind);
 		});
 
-		console.log(forecast10Days);
-		return forecast10Days;
+		return forecastData;
 	};
 
-	const rateEachDay = (forecastData, sportType) => {
-		return forecastData, sportType;
-		// Rating logic based on sport type here
+	const rateEachDay = (forecastData, searchData) => {
+		// rating: 1 if value within limits, 0 if value outside of limits
+		forecastData.forEach((forecastDay) => {
+			let rating = 0;
+			if (forecastDay.temperature >= searchData.temperatureFrom && forecastDay.temperature <= searchData.temperatureTo) {
+				rating += 1;
+			}
+
+			if (forecastDay.precipitation <= searchData.precipitation) {
+				rating += 1;
+			}
+
+			if (forecastDay.wind >= searchData.windSpeedFrom && forecastDay.wind <= searchData.windSpeedTo) {
+				rating += 1;
+			}
+
+			forecastDay.rating = rating / 3;
+		});
+
+		return forecastData;
 	};
 
 	const fetchDataAndProcess = async () => {
 		const weatherData = await fetchDataForNextTwoMonths();
 		const forecastData = filterDataForNext10Days(weatherData);
-		const ratedForecastData = rateEachDay(forecastData, sportType);
+		const ratedForecastData = rateEachDay(forecastData, searchData);
 		return ratedForecastData;
 	};
 
