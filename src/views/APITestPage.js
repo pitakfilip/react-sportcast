@@ -19,7 +19,7 @@ const APITestPage = () => {
 		};
 
 		fetchData();
-	}, [fetchDataAndProcess, dispatch]);
+	}, []);
 
 	return (
 		<div>
