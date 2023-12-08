@@ -32,7 +32,7 @@ export const precipitationData = [
 		30: 0.0,
 		31: 0.0,
 		_id: '651d353bd1c0ca6600011402',
-		year: 2020,
+		year: 2017,
 		month: 12,
 	},
 	{
@@ -68,7 +68,7 @@ export const precipitationData = [
 		30: 0.6,
 		31: 0.0,
 		_id: '651d353bd1c0ca6600011403',
-		year: 2021,
+		year: 2018,
 		month: 1,
 	},
 ];
@@ -107,7 +107,7 @@ export const temperatureData = [
 		30: 1.5,
 		31: -0.8,
 		_id: '651d353bd1c0ca6600011402',
-		year: 2020,
+		year: 2017,
 		month: 12,
 	},
 	{
@@ -143,7 +143,7 @@ export const temperatureData = [
 		30: 1.2,
 		31: -2.9,
 		_id: '651d353bd1c0ca6600011403',
-		year: 2021,
+		year: 2018,
 		month: 1,
 	},
 ];
@@ -182,7 +182,7 @@ export const windData = [
 		30: 1.6,
 		31: 1.2,
 		_id: '651d353bd1c0ca6600011402',
-		year: 2020,
+		year: 2017,
 		month: 12,
 	},
 	{
@@ -218,7 +218,7 @@ export const windData = [
 		30: 4.7,
 		31: 4.3,
 		_id: '651d353bd1c0ca6600011403',
-		year: 2021,
+		year: 2018,
 		month: 1,
 	},
 ];
