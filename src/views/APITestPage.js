@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSportData } from '../utils/apiUtils';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import GraphComponent from '../components/graphs/GraphComponent';
+import { LineChart } from '@mui/x-charts/LineChart';
 
 const dataFetched = (data) => ({
 	type: 'DATA_FETCHED',
@@ -30,6 +34,12 @@ const APITestPage = () => {
 		fetchData();
 	}, []);
 
+	const [activeTab, setActiveTab] = useState(0);
+
+	const handleTabChange = (event, newValue) => {
+		setActiveTab(newValue);
+	};
+
 	return (
 		<div>
 			<h1>API Test Page</h1>
@@ -37,6 +47,14 @@ const APITestPage = () => {
 				<div>
 					<h2>10 day forecast</h2>
 					<code>{JSON.stringify(data)}</code>
+					<Tabs value={activeTab} onChange={handleTabChange}>
+						<Tab label="Temperature" />
+						<Tab label="Precipitation" />
+						<Tab label="Wind Speed" />
+					</Tabs>
+					<div>
+						<GraphComponent data={data} activeTab={activeTab}/>
+					</div>
 				</div>
 			)}
 		</div>
