@@ -92,6 +92,7 @@ export const useSportData = (searchData) => {
 				rating += 1;
 			}
 
+      // average out temp, precip and wind ratings
 			forecastDay.rating = rating / 3;
 		});
 
