@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useAuth0 } from '../react-auth0-spa';
 import Header from './header/Header';
 import { makeStyles } from '@mui/styles';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
