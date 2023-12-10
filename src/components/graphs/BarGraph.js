@@ -18,7 +18,7 @@ const BarGraph = ({ data, weatherProperty, label, color }) => {
 
 	return (
 		<div>
-			<Box sx={{ width: '100%', maxWidth: '100%', height: 400 }}>
+			<Box sx={{ width: '100%', maxWidth: '100%', height: 450 }}>
 				<BarChart
 					xAxis={[
 						{
