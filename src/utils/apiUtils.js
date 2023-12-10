@@ -1,5 +1,6 @@
 import { useAuth0 } from '../react-auth0-spa';
 import { useRest } from '../utils/helpers';
+import { translate } from '../services/LanguageService';
 // TODO delete import
 import { precipitationData, temperatureData, windData } from './fakeData';
 
@@ -8,6 +9,15 @@ export const useSportData = (searchData) => {
 	const [{ resource: precipResource, rest: precipRest }] = useRest('precipitation');
 	const [{ resource: tempResource, rest: tempRest }] = useRest('temp-avg');
 	const [{ resource: windResource, rest: windRest }] = useRest('speed');
+	const daysOfWeek = [
+		translate('sunday'),
+		translate('monday'),
+		translate('tuesday'),
+		translate('wednesday'),
+		translate('thursday'),
+		translate('friday'),
+		translate('saturday'),
+	];
 
 	const currentYear = 2017;
 	const forecastDaysNumber = 10;
@@ -56,7 +66,7 @@ export const useSportData = (searchData) => {
 		for (let i = 0; i < forecastDaysNumber; i++) {
 			let date = new Date(currentDate);
 			date.setDate(date.getDate() + i);
-			forecastData.push({ date: date, day: date.getDay() });
+			forecastData.push({ date: date, day: daysOfWeek[date.getDay()] });
 		}
 
 		// add precipitation, temperature and wind data to 10-day forecast
@@ -77,9 +87,11 @@ export const useSportData = (searchData) => {
 	};
 
 	const rateEachDay = (forecastData, searchData) => {
-		// rating: 1 if value within limits, 0 if value outside of limits
+		// rating scale: 1 - 4
 		forecastData.forEach((forecastDay) => {
-			let rating = 0;
+			let rating = 1;
+
+			// rating: +1 if value within limits, +0 if value outside of limits
 			if (forecastDay.temperature >= searchData.temperatureFrom && forecastDay.temperature <= searchData.temperatureTo) {
 				rating += 1;
 			}
@@ -92,8 +104,8 @@ export const useSportData = (searchData) => {
 				rating += 1;
 			}
 
-			// average out temp, precip and wind ratings
-			forecastDay.rating = rating / 3;
+			// sum of temp, precip and wind ratings
+			forecastDay.rating = rating;
 		});
 
 		return forecastData;
@@ -103,6 +115,7 @@ export const useSportData = (searchData) => {
 		const weatherData = await fetchDataForNextTwoMonths();
 		const forecastData = filterDataForNext10Days(weatherData);
 		const ratedForecastData = rateEachDay(forecastData, searchData);
+		console.log(ratedForecastData);
 		return ratedForecastData;
 	};
 
