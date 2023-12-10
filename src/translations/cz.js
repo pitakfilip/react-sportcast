@@ -23,5 +23,12 @@ export const czTranslations = {
 	windSpeed: 'Rychlost větru',
 	clear: 'Obnovit',
 	exploreTitle: 'Prozkoumejte oblíbené',
-	exploreSubTitle: 'Vyzkoušejte jednu z našich 3 nejlepších aktivit'
+	exploreSubTitle: 'Vyzkoušejte jednu z našich 3 nejlepších aktivit',
+	monday: 'Pondělí',
+	tuesday: 'Úterý',
+	wednesday: 'Středa',
+	thursday: 'Čtvrtek',
+	friday: 'Pátek',
+	saturday: 'Sobota',
+	sunday: 'Neděle',
 };

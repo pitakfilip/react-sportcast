@@ -23,5 +23,14 @@ export const enTranslations = {
 	windSpeed: 'Wind Speed',
 	clear: 'Clear',
 	exploreTitle: 'Explore Popular',
-	exploreSubTitle: 'Try one of our top 3 activities'
+	exploreSubTitle: 'Try one of our top 3 activities',
+	forecastTitle: '10 day forecast for your activity',
+	forecastSubtitle: 'Click on a card to see a detailed view',
+	monday: 'Monday',
+	tuesday: 'Tuesday',
+	wednesday: 'Wednesday',
+	thursday: 'Thursday',
+	friday: 'Friday',
+	saturday: 'Saturday',
+	sunday: 'Sunday',
 };

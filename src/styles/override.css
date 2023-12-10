@@ -1,0 +1,21 @@
+/*
+    Override slick-carousel arrow styles
+    package doesnt support custom arrow button sizes and colors
+    node_modules/slick-carousel/slick/slick-theme.css
+    https://react-slick.neostack.com/
+*/
+.slick-prev:before,
+.slick-next:before {
+    color: #0770DA;
+    font-size: 35px;
+}
+
+.slick-prev
+{
+    left: -40px;
+}
+[dir='rtl'] .slick-prev
+{
+    right: -40px;
+    left: auto;
+}

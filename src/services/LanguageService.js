@@ -35,3 +35,11 @@ export const translate = (key) => {
 	const lang = getLang();
 	return translationFiles[lang][key] || key; // If translation not found, return the original key
 };
+
+export const getLocale = () => {
+	const lang = getLang();
+	if (lang === Language.EN) {
+		return 'en-US'
+	}
+	return 'cs-CZ'
+}
