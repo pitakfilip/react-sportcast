@@ -20,7 +20,7 @@ export const enTranslations = {
 	advancedErr: 'Each weather factor requires atleast one value',
 	temperature: 'Temperature',
 	precipitation: 'Precipitation',
-	windSpeed: 'Wind Speed',
+	windSpeed: 'Wind speed',
 	clear: 'Clear',
 	exploreTitle: 'Explore Popular',
 	exploreSubTitle: 'Try one of our top 3 activities',

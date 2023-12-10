@@ -1,6 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSportData } from '../utils/apiUtils';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import LineGraph from '../components/graphs/LineGraph';
+import BarGraph from '../components/graphs/BarGraph';
+import { translate } from '../services/LanguageService';
 
 const dataFetched = (data) => ({
 	type: 'DATA_FETCHED',
@@ -30,6 +35,12 @@ const APITestPage = () => {
 		fetchData();
 	}, []);
 
+	const [activeTab, setActiveTab] = useState(0);
+
+	const handleTabChange = (e, newValue) => {
+		setActiveTab(newValue);
+	};
+
 	return (
 		<div>
 			<h1>API Test Page</h1>
@@ -37,6 +48,18 @@ const APITestPage = () => {
 				<div>
 					<h2>10 day forecast</h2>
 					<code>{JSON.stringify(data)}</code>
+					<Tabs value={activeTab} onChange={handleTabChange}>
+						<Tab label={translate('temperature')} />
+						<Tab label={translate('precipitation')} />
+						<Tab label={translate('windSpeed')} />
+					</Tabs>
+					{/* <div>
+						<LineGraph data={data} weatherProperty={'temperature'} />
+					</div> */}
+
+					{activeTab === 0 && <LineGraph data={data} weatherProperty="temperature" label={translate('temperature') + ' °C'} color="#FF8513" />}
+					{activeTab === 1 && <BarGraph data={data} weatherProperty="precipitation" label={translate('precipitation') + ' mm'} />}
+					{activeTab === 2 && <LineGraph data={data} weatherProperty="wind" label={translate('windSpeed') + ' m/s'} color="#31BD00" />}
 				</div>
 			)}
 		</div>
