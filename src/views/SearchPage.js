@@ -37,9 +37,15 @@ const useStyles = makeStyles((theme) => {
 			width: '80%'
 		},
 		title: {
+			fontFamily: 'Tahoma, Verdana, Segoe, sans-serif',
+			fontStyle: 'normal',
+			fontWeight: '500',
 			fontSize: '2.5em'
 		},
 		subTitle: {
+			fontFamily: 'Tahoma, Verdana, Segoe, sans-serif',
+			fontStyle: 'normal',
+			fontWeight: '400',
 			fontSize: '1.2em'
 		},
 		topActivities: {

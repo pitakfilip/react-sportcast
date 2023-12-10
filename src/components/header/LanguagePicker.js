@@ -38,6 +38,7 @@ const LanguagePicker = () => {
 
 	const setLang = (lang) => {
 		changeLang(lang);
+		window.location.reload(false);
 		currLang = lang;
 		handleClose();
 	};

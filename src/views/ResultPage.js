@@ -11,6 +11,8 @@ import Tab from '@mui/material/Tab';
 import LineGraph from '../components/graphs/LineGraph';
 import BarGraph from '../components/graphs/BarGraph';
 import { translate } from '../services/LanguageService';
+import graphBackground from '../assets/mountains.jpg';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => {
 	return {
@@ -32,13 +34,27 @@ const useStyles = makeStyles((theme) => {
 			width: '75%',
 		},
 		graphs: {
+			display: 'flex',
+			justifyContent: 'center',
+			width: '100%',
+			backgroundImage: `url(${graphBackground})`,
+			backgroundSize: 'cover',
+			backgroundRepeat: 'no-repeat',
+			backgroundPosition: 'center center',
+			padding: '3em 0'
+		},
+		graphContent: {
 			display: 'block',
-			width: '75%',
+			width: '90%',
 		},
 		title: {
+			fontFamily: 'Tahoma, Verdana, Segoe, sans-serif',
+			fontStyle: 'normal',
+			fontWeight: '500',
 			fontSize: '3.5em',
 		},
 		tabs: {
+			paddingBottom: '2em',
 			'& .MuiTabs-flexContainer': {
 				justifyContent: 'center',
 			},
@@ -85,11 +101,6 @@ const ResultPage = () => {
 		setSearchValues(newSearchValues); // Update the search criteria
 	};
 
-	const [activeTab, setActiveTab] = useState(0);
-
-	const handleTabChange = (e, newValue) => {
-		setActiveTab(newValue);
-	};
 
 	return (
 		<div className={classes.root}>
@@ -106,21 +117,43 @@ const ResultPage = () => {
 
 				{data && (
 					<div className={classes.graphs}>
-						<section className={classes.title}>{translate('detailedOverview')}</section>
-						<Tabs value={activeTab} onChange={handleTabChange} className={classes.tabs}>
-							<Tab label={translate('temperature')} />
-							<Tab label={translate('precipitation')} />
-							<Tab label={translate('windSpeed')} />
-						</Tabs>
-
-						{activeTab === 0 && <LineGraph data={data} weatherProperty="temperature" label={translate('temperature') + ' °C'} color="#FF8513" />}
-						{activeTab === 1 && <BarGraph data={data} weatherProperty="precipitation" label={translate('precipitation') + ' mm'} />}
-						{activeTab === 2 && <LineGraph data={data} weatherProperty="wind" label={translate('windSpeed') + ' m/s'} color="#31BD00" />}
+						<TranslucentBox centered={true} width={70} 
+														component={Graphs} 
+														data={data} 
+														css={classes}
+						/>
 					</div>
 				)}
 			</div>
 		</div>
 	);
+};
+
+const Graphs = ({data, css}) => {
+	const [activeTab, setActiveTab] = useState(0);
+
+	const handleTabChange = (e, newValue) => {
+		setActiveTab(newValue);
+	};
+	return (
+		<div className={css.graphContent}>
+			<section className={css.title}>{translate('detailedOverview')}</section>
+			<Tabs value={activeTab} variant="fullWidth" onChange={handleTabChange} className={css.tabs}>
+				<Tab label={translate('temperature')} style={{outline: 'none'}}/>
+				<Tab label={translate('precipitation')} style={{outline: 'none'}}/>
+				<Tab label={translate('windSpeed')} style={{outline: 'none'}}/>
+			</Tabs>
+
+			{activeTab === 0 && <LineGraph data={data} weatherProperty="temperature" label={translate('temperature') + ' °C'} color="#FF8513" />}
+			{activeTab === 1 && <BarGraph data={data} weatherProperty="precipitation" label={translate('precipitation') + ' mm'} />}
+			{activeTab === 2 && <LineGraph data={data} weatherProperty="wind" label={translate('windSpeed') + ' m/s'} color="#31BD00" />}
+		</div>
+	);
+};
+
+Graphs.propTypes = {
+	data: PropTypes.any,
+	css: PropTypes.any
 };
 
 export default ResultPage;

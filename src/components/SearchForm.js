@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => {
 			width: '100%',
 		},
 		title: {
+			fontFamily: 'Tahoma, Verdana, Segoe, sans-serif',
+			fontStyle: 'normal',
+			fontWeight: '500',
 			fontSize: '2.5em',
 		},
 		advancedWrapper: {
@@ -238,8 +241,8 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 								<Grid item className={classes.advancedWrapper}>
 									<div className={classes.advancedRoot}>
 										<Grid container justifyContent="space-between" spacing={4}>
-											<Grid item xs={4} justifyContent="space-between">
-												<section className={classes.advCriteriumRoot} style={{ justifyContent: 'flex-start' }}>
+											<Grid item lg={6} xl={4} justifyContent="space-between">
+												<section className={classes.advCriteriumRoot} style={{ justifyContent: 'center' }}>
 													<span>{translate('temperature')}</span>
 													<div className={classes.advCriteriumFields}>
 														<TextField
@@ -268,7 +271,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 												</section>
 											</Grid>
 
-											<Grid item xs={4}>
+											<Grid item lg={6} xl={4}>
 												<section className={classes.advCriteriumRoot} style={{ justifyContent: 'center' }}>
 													<span>{translate('precipitation')}</span>
 													<div className={classes.advCriteriumField}>
@@ -288,8 +291,8 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 												</section>
 											</Grid>
 
-											<Grid item xs={4} justifyContent="space-between">
-												<section className={classes.advCriteriumRoot} style={{ justifyContent: 'flex-end' }}>
+											<Grid item lg={6} xl={4} justifyContent="space-between">
+												<section className={classes.advCriteriumRoot} style={{ justifyContent: 'center' }}>
 													<span>{translate('windSpeed')}</span>
 													<div className={classes.advCriteriumFields}>
 														<TextField

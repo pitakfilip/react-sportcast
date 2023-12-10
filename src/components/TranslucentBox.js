@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 
-const TranslucentBox = ({component: Component, width, height, ...props}) => {
+const TranslucentBox = ({component: Component, centered, width, height, ...props}) => {
 	const useStyles = makeStyles((theme) => {
 		return {
 			root: {
@@ -18,13 +18,18 @@ const TranslucentBox = ({component: Component, width, height, ...props}) => {
 				// width: 'fit-content',
 				height: 'fit-content',
 			},
+			innerCentered: {
+				display: 'flex',
+				justifyContent: 'center',
+				width: '100%'
+			}
 		};
 	});
 	const classes = useStyles();
 
 	return (
 		<div className={classes.root}>
-			<div className={classes.inner}>
+			<div className={classes.inner + centered? ` ${classes.innerCentered}` : ''}>
 				<Component {...props}/>
 			</div>
 		</div>
@@ -33,6 +38,7 @@ const TranslucentBox = ({component: Component, width, height, ...props}) => {
 
 TranslucentBox.propTypes = {
 	component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
+	centered: PropTypes.bool,
 	width: PropTypes.number,
 	height: PropTypes.number,
 };

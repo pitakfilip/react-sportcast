@@ -37,7 +37,7 @@ const Header = () => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.content}>
-				<a onClick={() => navigate('/search')} style={{cursor: 'pointer'}}>
+				<a onClick={() => navigate('/search')} style={{cursor: 'pointer !important'}}>
 					<Logo scale={1.3} />
 				</a>
 				<section className={classes.rightSection}>

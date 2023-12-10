@@ -9,13 +9,17 @@ import WeatherCard from './WeatherCard';
 const useStyles = makeStyles((theme) => {
 	return {
 		root: {
+			fontFamily: 'Tahoma, Verdana, Segoe, sans-serif',
+			fontStyle: 'normal',
+			fontWeight: '500',
 			marginTop: '2em'
 		},
 		title: {
 			fontSize: '3.5em'
 		},
 		subtitle: {
-			fontSize: '1.4em'
+			marginLeft: '1em',
+			fontSize: '1.3em'
 		},
 		cards: {
 			display: 'block',
