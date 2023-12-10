@@ -16,6 +16,7 @@ const LineGraph = ({ data, weatherProperty, label, color }) => {
 	const xAxisCommon = {
 		data: graphXLabels,
 		scaleType: 'time',
+		labelOffset: 15,
 	};
 
 	return (

@@ -33,4 +33,5 @@ export const enTranslations = {
 	friday: 'Friday',
 	saturday: 'Saturday',
 	sunday: 'Sunday',
+	detailedOverview: 'Detailed overview',
 };
