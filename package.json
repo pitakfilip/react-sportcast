@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build; cpy build/index.html ./ --rename=200.html",
+    "build": "react-scripts build cpy build/index.html ./ --rename=200.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "surge ./build --domain TODO",
