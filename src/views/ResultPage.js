@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { makeStyles } from '@mui/styles';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Forecast from '../components/forecast/Forecast';
@@ -59,7 +59,9 @@ const ResultPage = () => {
 
 	const data = useSelector(({ exampleReducer }) => exampleReducer.data);
 
-	const initialSearchValues = location.state ? location.state.searchValues : undefined;
+	const initialSearchValues = useMemo(() => {
+		return location.state ? location.state.searchValues : undefined;
+	}, [location.state]);
 	const [searchValues, setSearchValues] = useState(initialSearchValues);
 
 	const { fetchDataAndProcess } = useSportData(searchValues); // Pass searchValues to the hook
@@ -70,7 +72,7 @@ const ResultPage = () => {
 		} else {
 			fetchData();
 		}
-	}, [searchValues, fetchDataAndProcess]); // Add fetchDataAndProcess to the dependency array
+	}, [searchValues]);
 
 	const fetchData = async () => {
 		if (searchValues) {

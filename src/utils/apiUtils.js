@@ -1,7 +1,7 @@
 import { useAuth0 } from '../react-auth0-spa';
 import { useRest } from '../utils/helpers';
 import { translate } from '../services/LanguageService';
-// TODO delete import
+// TODO delete import to use real API data
 import { precipitationData, temperatureData, windData } from './fakeData';
 
 export const useSportData = (searchData) => {
@@ -42,7 +42,7 @@ export const useSportData = (searchData) => {
 		const restQuery = { $or: orQuery };
 
 		// Make API requests for precipitation, temperature, and wind
-		// TODO use real API requests
+		// TODO uncomment to use real API requests
 		// const precipitationData = precipResource ? await precipResource.get(`/rest/${precipRest}?q=${JSON.stringify(restQuery)}`) : null;
 		// const temperatureData = tempResource ? await tempResource.get(`/rest/${tempRest}?q=${JSON.stringify(restQuery)}`) : null;
 		// const windData = windResource ? await windResource.get(`/rest/${windRest}?q=${JSON.stringify(restQuery)}`) : null;
