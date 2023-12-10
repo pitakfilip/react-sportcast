@@ -35,6 +35,14 @@ const useStyles = makeStyles((theme) => {
 			display: 'block',
 			width: '75%',
 		},
+		title: {
+			fontSize: '3.5em',
+		},
+		tabs: {
+			'& .MuiTabs-flexContainer': {
+				justifyContent: 'center',
+			},
+		},
 	};
 });
 
@@ -96,8 +104,8 @@ const ResultPage = () => {
 
 				{data && (
 					<div className={classes.graphs}>
-						<h2>10 day forecast</h2>
-						<Tabs value={activeTab} onChange={handleTabChange}>
+						<section className={classes.title}>{translate('detailedOverview')}</section>
+						<Tabs value={activeTab} onChange={handleTabChange} className={classes.tabs}>
 							<Tab label={translate('temperature')} />
 							<Tab label={translate('precipitation')} />
 							<Tab label={translate('windSpeed')} />

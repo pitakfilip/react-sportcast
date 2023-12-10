@@ -33,4 +33,5 @@ export const czTranslations = {
 	friday: 'Pátek',
 	saturday: 'Sobota',
 	sunday: 'Neděle',
+	detailedOverview: 'Detailní přehled',
 };
