@@ -7,7 +7,7 @@
     "build": "react-scripts build cpy build/index.html ./ --rename=200.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "surge ./build --domain TODO",
+    "deploy": "surge ./build --domain https://great-night.surge.sh ",
     "lint": "eslint ./"
   },
   "dependencies": {
