@@ -24,6 +24,8 @@ export const czTranslations = {
 	clear: 'Obnovit',
 	exploreTitle: 'Prozkoumejte oblíbené',
 	exploreSubTitle: 'Vyzkoušejte jednu z našich 3 nejlepších aktivit',
+	forecastTitle: 'Předpověď vaší aktivity na 10 dní',
+	forecastSubtitle: 'Kliknutím na kartu zobrazíte podrobné informace',
 	monday: 'Pondělí',
 	tuesday: 'Úterý',
 	wednesday: 'Středa',
