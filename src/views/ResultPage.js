@@ -44,32 +44,36 @@ const dataFetched = (data) => ({
 });
 
 const ResultPage = () => {
-
 	const location = useLocation();
 	const navigate = useNavigate();
-	const { searchValues } = location.state || {};
-
-	useEffect(() => {
-		if (!location.state || !location.state.searchValues) {
-			// Redirect to '/search' if props are missing
-			navigate('/search');
-		}
-	}, [location.state]);
-
+	const dispatch = useDispatch();
 	const classes = useStyles();
 
-	const dispatch = useDispatch();
 	const data = useSelector(({ exampleReducer }) => exampleReducer.data);
-	const { fetchDataAndProcess } = useSportData(searchValues);
+
+	const initialSearchValues = location.state ? location.state.searchValues : undefined;
+	const [searchValues, setSearchValues] = useState(initialSearchValues);
+
+	const { fetchDataAndProcess } = useSportData(searchValues); // Pass searchValues to the hook
 
 	useEffect(() => {
-		const fetchData = async () => {
+		if (!searchValues) {
+			navigate('/search');
+		} else {
+			fetchData();
+		}
+	}, [searchValues, fetchDataAndProcess]); // Add fetchDataAndProcess to the dependency array
+
+	const fetchData = async () => {
+		if (searchValues) {
 			const result = await fetchDataAndProcess();
 			dispatch(dataFetched(result));
-		};
+		}
+	};
 
-		fetchData();
-	}, []);
+	const handleSearchUpdate = (newSearchValues) => {
+		setSearchValues(newSearchValues); // Update the search criteria
+	};
 
 	const [activeTab, setActiveTab] = useState(0);
 
@@ -79,10 +83,9 @@ const ResultPage = () => {
 
 	return (
 		<div className={classes.root}>
-
 			<div className={classes.wrapper}>
 				<div className={classes.search}>
-					<TranslucentBox component={SearchForm} simplified={true} />
+					<TranslucentBox component={SearchForm} simplified={true} onFormSubmit={handleSearchUpdate} />
 				</div>
 
 				{data && (
