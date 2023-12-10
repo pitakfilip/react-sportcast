@@ -33,7 +33,6 @@ const sliderSettings = {
 
 const Forecast = ({ data }) => {
 	const classes = useStyles();
-	console.log(data);
 	
 	return (
 		<div className={classes.root}>

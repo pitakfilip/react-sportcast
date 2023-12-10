@@ -53,9 +53,6 @@ const APITestPage = () => {
 						<Tab label={translate('precipitation')} />
 						<Tab label={translate('windSpeed')} />
 					</Tabs>
-					{/* <div>
-						<LineGraph data={data} weatherProperty={'temperature'} />
-					</div> */}
 
 					{activeTab === 0 && <LineGraph data={data} weatherProperty="temperature" label={translate('temperature') + ' °C'} color="#FF8513" />}
 					{activeTab === 1 && <BarGraph data={data} weatherProperty="precipitation" label={translate('precipitation') + ' mm'} />}

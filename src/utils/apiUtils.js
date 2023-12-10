@@ -48,7 +48,6 @@ export const useSportData = (searchData) => {
 		// const windData = windResource ? await windResource.get(`/rest/${windRest}?q=${JSON.stringify(restQuery)}`) : null;
 
 		// TODO delete
-		console.log('fake request sent, waiting...');
 		const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 		await delay(1300);
 
@@ -115,7 +114,6 @@ export const useSportData = (searchData) => {
 		const weatherData = await fetchDataForNextTwoMonths();
 		const forecastData = filterDataForNext10Days(weatherData);
 		const ratedForecastData = rateEachDay(forecastData, searchData);
-		console.log(ratedForecastData);
 		return ratedForecastData;
 	};
 
