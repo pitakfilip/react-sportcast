@@ -6,6 +6,7 @@ import background from '../assets/jumping-rope.jpg';
 import Introduction from '../components/introduction/Introduction';
 import logo from '../components/logo/sportcast-logo.png';
 import { translate } from '../services/LanguageService';
+import LanguagePicker from '../components/header/LanguagePicker';
 
 const useStyles = makeStyles((theme) => {
 	return {
@@ -51,6 +52,11 @@ const useStyles = makeStyles((theme) => {
 		under: {
 			flex: '4',
 		},
+		floatCorner: {
+			position: 'absolute',
+			top: '5%',
+			right: '5%'
+		}
 	};
 });
 
@@ -77,6 +83,9 @@ const LandingPage = () => {
 			</section>
 
 			<section className={classes.redirectSection}>
+				<span className={classes.floatCorner}>
+					<LanguagePicker/>
+				</span>
 				<Introduction />
 			</section>
 		</div>

@@ -33,6 +33,7 @@
       "arrow-parens": "off",
       "no-confusing-arrow": "off",
       "no-unused-vars": "off",
+      "react/no-unescaped-entities": "off",
       "prettier/prettier": 0
   }
 }

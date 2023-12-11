@@ -1,5 +1,6 @@
 export const czTranslations = {
 	welcome: 'Vítejte na našem webu!',
+	continue: 'Přihlásit se',
 	aboutUs: 'O nás',
 	contact: 'Kontaktujte nás',
 	discoverPerfectDay: 'Objevte svůj dokonalý den pro aktivitu',

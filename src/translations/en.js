@@ -1,5 +1,6 @@
 export const enTranslations = {
 	welcome: 'Welcome to our website!',
+	continue: 'Log in',
 	aboutUs: 'About Us',
 	contact: 'Contact Us',
 	discoverPerfectDay: 'Discover Your Perfect Activity Day',
