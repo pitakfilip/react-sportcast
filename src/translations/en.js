@@ -35,4 +35,9 @@ export const enTranslations = {
 	saturday: 'Saturday',
 	sunday: 'Sunday',
 	detailedOverview: 'Detailed overview',
+	lowPrecipitationTooltip: 'under 6mm',
+	ratingTerrible: 'Terrible weather',
+	ratingManageable: 'Need to compromise',
+	ratingSuboptimal: 'Almost perfect!',
+	ratingPerfect: 'Perfect for your plans'
 };

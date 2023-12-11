@@ -35,4 +35,9 @@ export const czTranslations = {
 	saturday: 'Sobota',
 	sunday: 'Neděle',
 	detailedOverview: 'Detailní přehled',
+	lowPrecipitationTooltip: 'méně než 6mm',
+	ratingTerrible: 'Příšerné počasí',
+	ratingManageable: 'Potřeba kompromisu',
+	ratingSuboptimal: 'Téměř perfektní!',
+	ratingPerfect: 'Ideální pro vaše plány'
 };

@@ -1,13 +1,24 @@
 import React from 'react';
-import { Autocomplete, Button, Checkbox, FormControlLabel, FormHelperText, Grid, IconButton, InputAdornment, TextField } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import { ActivityService } from '../services/ActivityService';
-import { storeJson, loadJson, unsetKey } from '../services/StorageService';
+import {
+	Autocomplete,
+	Button,
+	Checkbox,
+	FormControlLabel,
+	FormHelperText,
+	Grid,
+	IconButton,
+	InputAdornment,
+	TextField,
+	Tooltip
+} from '@mui/material';
+import {makeStyles} from '@mui/styles';
+import {ActivityService} from '../services/ActivityService';
+import {storeJson, loadJson, unsetKey} from '../services/StorageService';
 import PropTypes from 'prop-types';
-import { Clear, NearMe, Search, Tune } from '@mui/icons-material';
-import { LocationService } from '../services/LocationService';
-import { translate } from '../services/LanguageService';
-import { useNavigate } from 'react-router-dom';
+import {Clear, NearMe, Search, Tune} from '@mui/icons-material';
+import {LocationService} from '../services/LocationService';
+import {translate} from '../services/LanguageService';
+import {useNavigate} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => {
 	return {
@@ -83,7 +94,7 @@ const initErrors = () => {
 	};
 };
 
-const SearchForm = ({ simplified, onFormSubmit }) => {
+const SearchForm = ({simplified, onFormSubmit}) => {
 	const navigate = useNavigate();
 	const classes = useStyles();
 	const activityOptions = ActivityService.getAutocompleteEntries();
@@ -111,17 +122,17 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 					windSpeedTo: preset.windSpeedTo,
 				};
 			} else {
-				updatedValues = { ...values, [property]: value };
+				updatedValues = {...values, [property]: value};
 			}
 		} else {
-			updatedValues = { ...values, [property]: value };
+			updatedValues = {...values, [property]: value};
 		}
 		setValues(updatedValues);
 		storeJson(storageKey, updatedValues);
 	};
 	const handleNumberChange = (e, property) => {
 		// eslint-disable-next-line
-		const { name, value } = e.target;
+		const {name, value} = e.target;
 		handleValueChange(property, value);
 	};
 	const toggleAdvanced = (e) => {
@@ -168,7 +179,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 			if (onFormSubmit) {
 				onFormSubmit(values); // Use the provided submit handler if available
 			} else {
-				navigate('/result', { state: { searchValues: values } }); // Default behavior
+				navigate('/result', {state: {searchValues: values}}); // Default behavior
 			}
 		}
 	};
@@ -184,7 +195,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 								<Grid item>
 									<div className={classes.title}>
 										<span>
-											<Search fontSize={'large'} />
+											<Search fontSize={'large'}/>
 										</span>
 										<span>{translate('discoverPerfectDay')}</span>
 									</div>
@@ -202,7 +213,8 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 								options={activityOptions}
 								getOptionLabel={(option) => ActivityService.getLabel(option)}
 								renderInput={(params) => (
-									<TextField {...params} error={!!errors.activity} helperText={errors.activity} label={translate('activity')} />
+									<TextField {...params} error={!!errors.activity} helperText={errors.activity}
+														 label={translate('activity')}/>
 								)}
 							/>
 						</Grid>
@@ -223,7 +235,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 											startAdornment: (
 												<InputAdornment position="start">
 													<IconButton onClick={(e) => handleValueChange('location', 'Brno')}>
-														<NearMe />
+														<NearMe/>
 													</IconButton>
 												</InputAdornment>
 											),
@@ -242,7 +254,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 									<div className={classes.advancedRoot}>
 										<Grid container justifyContent="space-between" spacing={4}>
 											<Grid item lg={6} xl={4} justifyContent="space-between">
-												<section className={classes.advCriteriumRoot} style={{ justifyContent: 'center' }}>
+												<section className={classes.advCriteriumRoot} style={{justifyContent: 'center'}}>
 													<span>{translate('temperature')}</span>
 													<div className={classes.advCriteriumFields}>
 														<TextField
@@ -252,7 +264,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 															hiddenLabel
 															variant="filled"
 															size="small"
-															style={{ width: '35%' }}
+															style={{width: '35%'}}
 															error={!!errors.temperature}
 														/>
 														<span>{'-'}</span>
@@ -263,7 +275,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 															hiddenLabel
 															variant="filled"
 															size="small"
-															style={{ width: '35%' }}
+															style={{width: '35%'}}
 															error={!!errors.temperature}
 														/>
 													</div>
@@ -272,7 +284,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 											</Grid>
 
 											<Grid item lg={6} xl={4}>
-												<section className={classes.advCriteriumRoot} style={{ justifyContent: 'center' }}>
+												<section className={classes.advCriteriumRoot} style={{justifyContent: 'center'}}>
 													<span>{translate('precipitation')}</span>
 													<div className={classes.advCriteriumField}>
 														<span>{'<'}</span>
@@ -283,7 +295,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 															hiddenLabel
 															variant="filled"
 															size="small"
-															style={{ width: '60%' }}
+															style={{width: '60%'}}
 															error={!!errors.precipitation}
 														/>
 													</div>
@@ -292,7 +304,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 											</Grid>
 
 											<Grid item lg={6} xl={4} justifyContent="space-between">
-												<section className={classes.advCriteriumRoot} style={{ justifyContent: 'center' }}>
+												<section className={classes.advCriteriumRoot} style={{justifyContent: 'center'}}>
 													<span>{translate('windSpeed')}</span>
 													<div className={classes.advCriteriumFields}>
 														<TextField
@@ -302,7 +314,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 															hiddenLabel
 															variant="filled"
 															size="small"
-															style={{ width: '35%' }}
+															style={{width: '35%'}}
 															error={!!errors.wind}
 														/>
 														<span>{'-'}</span>
@@ -313,7 +325,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 															hiddenLabel
 															variant="filled"
 															size="small"
-															style={{ width: '35%' }}
+															style={{width: '35%'}}
 															error={!!errors.wind}
 														/>
 													</div>
@@ -325,8 +337,8 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 									{(() => {
 										if (errors.temperature || errors.precipitation || errors.wind) {
 											return (
-												<div style={{ marginLeft: '1.5em' }}>
-													<FormHelperText error style={{ fontSize: '1rem' }}>
+												<div style={{marginLeft: '1.5em'}}>
+													<FormHelperText error style={{fontSize: '1rem'}}>
 														{translate('advancedErr')}
 													</FormHelperText>
 												</div>
@@ -341,7 +353,7 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 					{/* BUTTON ROW: TOGGLE ADVANCED, TOGGLE LOW PRECIPITATION, SUBMIT */}
 					<Grid item container justifyContent="space-between" alignItems="center">
 						<Grid item xs={4}>
-							<Button variant="outlined" startIcon={<Tune />} onClick={toggleAdvanced}>
+							<Button variant="outlined" startIcon={<Tune/>} onClick={toggleAdvanced}>
 								{toggledAdvanced ? translate('simpleSearch') : translate('advancedSearch')}
 							</Button>
 						</Grid>
@@ -349,19 +361,24 @@ const SearchForm = ({ simplified, onFormSubmit }) => {
 						<Grid item xs={4}>
 							<Grid container justifyContent="flex-end" alignItems="center" spacing={4}>
 								<Grid item alignItems="flex-end">
-									<FormControlLabel
-										checked={lowPrecipitation}
-										onChange={toggleLowPrecipitation}
-										control={<Checkbox />}
-										label={translate('lowPrecipitation')}
-									/>
+									<Tooltip
+										title={translate('lowPrecipitationTooltip')}
+										placement="bottom"
+									>
+										<FormControlLabel
+											checked={lowPrecipitation}
+											onChange={toggleLowPrecipitation}
+											control={<Checkbox/>}
+											label={translate('lowPrecipitation')}
+										/>
+									</Tooltip>
 								</Grid>
 
 								<Grid item>
-									<Button variant="contained" startIcon={<Clear />} onClick={handleClear} style={{ marginRight: '1em' }}>
+									<Button variant="contained" startIcon={<Clear/>} onClick={handleClear} style={{marginRight: '1em'}}>
 										{translate('clear')}
 									</Button>
-									<Button variant="contained" startIcon={<Search />} onClick={handleSubmit}>
+									<Button variant="contained" startIcon={<Search/>} onClick={handleSubmit}>
 										{translate('search')}
 									</Button>
 								</Grid>

@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 import { getLocale, translate } from '../../services/LanguageService';
-import { LinearProgress, Paper } from '@mui/material';
+import {LinearProgress, Paper, Tooltip} from '@mui/material';
 import cloudy from './../../assets/forecast/cloudy.png';
 import rain from './../../assets/forecast/rain.png';
 import rainSunny from './../../assets/forecast/rain-sunny.png';
@@ -110,6 +110,13 @@ const WeatherCard = ({ data }) => {
 		setFlip(!flip);
 	};
 
+	const tooltipKey = () => {
+		if (data.rating === 1) return 'ratingTerrible';
+		if (data.rating === 2) return 'ratingManageable';
+		if (data.rating === 3) return 'ratingSuboptimal';
+		if (data.rating === 4) return 'ratingPerfect';
+	}
+	
 	return (
 		<div className={classes.root}>
 			<Paper className={classes.card} square={false} elevation={4} onClick={handleFlip}>
@@ -150,19 +157,24 @@ const WeatherCard = ({ data }) => {
 					})()}
 
 					<section className={classes.rating}>
-						<LinearProgress
-							variant="determinate"
-							sx={{
-								border: '1px solid black',
-								borderRadius: '10px',
-								backgroundColor: 'rgba(216,235,255,0.65)',
-								'& .MuiLinearProgress-bar': {
-									backgroundColor: `${levelColor()}`,
-								},
-							}}
-							value={25 * data.rating}
-							className={'progressBar'}
-						/>
+						<Tooltip 
+							title={translate(tooltipKey())} 
+							placement="bottom"
+						>
+							<LinearProgress
+								variant="determinate"
+								sx={{
+									border: '1px solid black',
+									borderRadius: '10px',
+									backgroundColor: 'rgba(216,235,255,0.65)',
+									'& .MuiLinearProgress-bar': {
+										backgroundColor: `${levelColor()}`,
+									},
+								}}
+								value={25 * data.rating}
+								className={'progressBar'}
+							/>
+						</Tooltip>
 					</section>
 				</div>
 			</Paper>
